@@ -3,14 +3,13 @@ import unittest
 from nose2.tools import params
 
 
-class Test_init_wordcounter(unittest.TestCase):
+class TestInitWordcounter(unittest.TestCase):
     """Tests __init___"""
 
     def test_init_with_string(self):
         """Input is parsed."""
         input = "This is a string"
         result = Wordcounter(input)
-        print(result)
         self.assertEqual(result.string, "This is a string")
 
     @params(0, None, ["list", "of", "words"], {"test": "dict"})
@@ -27,7 +26,7 @@ class Test_init_wordcounter(unittest.TestCase):
         self.assertTrue("String must be at least of length 1" in error.exception.args)
 
 
-class Test_wordcounts(unittest.TestCase):
+class TestWordcounts(unittest.TestCase):
     """Tests _word_counts() method"""
 
     def test_word_counts_only_string(self):
@@ -63,7 +62,7 @@ class Test_wordcounts(unittest.TestCase):
         )
 
 
-class Test_calculate_frequency_for_word(unittest.TestCase):
+class TestCalculateFrequencyForWord(unittest.TestCase):
     """Tests calculate_frequency_for_word() method"""
 
     @params("the", "The", "tHe")
@@ -81,7 +80,7 @@ class Test_calculate_frequency_for_word(unittest.TestCase):
         self.assertTrue("Word is not in string" in error.exception.args)
 
 
-class Test_calculate_most_frequent_n_words(unittest.TestCase):
+class TestCalculateMostFrequentNWords(unittest.TestCase):
     """Tests calculate_most_frequent_n_words() method"""
 
     def test_most_frequent_3_words(self):
@@ -114,7 +113,7 @@ class Test_calculate_most_frequent_n_words(unittest.TestCase):
         self.assertTrue("n must be of type int" in error.exception.args)
 
 
-class Test_calculate_highest_frequency(unittest.TestCase):
+class TestCalculateHighestFrequency(unittest.TestCase):
     """Tests calculate_highest_frequency() method"""
 
     def test_highest_frequency_singular(self):
